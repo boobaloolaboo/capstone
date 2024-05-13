@@ -54,7 +54,7 @@ if(isLoading) {
         }
 
 
-            <div className="grid md:grid-cols-4 justify-center gap-10 m-20 relative z-0">
+            <div className="grid md:grid-cols-3 justify-center gap-10 m-20 relative z-0">
             {images && images.map((image, index) => {
                 return (
                     <div 
