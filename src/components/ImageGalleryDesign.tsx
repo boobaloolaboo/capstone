@@ -1,12 +1,10 @@
 import useFirestore from "../hooks/useFirestore";
 import { useState } from 'react';
-import { useAuth } from "../hooks/useAuth";
 
 const ImageGalleryDesign = () => {
     const { docs: images, isLoading } = useFirestore("design");
     const [slideNumber, setSlideNumber] = useState(0);
     const [openModal, setOpenModal] = useState(false);
-    const { user } = useAuth();
 
 
 if(isLoading) {
@@ -72,12 +70,6 @@ if(isLoading) {
                         <div className="card-body">
                             <h2 className="card-title">{image.title}</h2>
                             <p>{image.details}</p>
-                            {!user ? <>
-                            </> : <>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Delete</button>
-                            </div>
-                            </>}
                         </div>
                     </div>
                 )

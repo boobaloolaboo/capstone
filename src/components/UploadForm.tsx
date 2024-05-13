@@ -4,9 +4,9 @@ import useStorage from "../hooks/useStorage";
 const UploadForm = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [selectedTitle, setSelectedTitle] = useState<string>("");
-    const [selectedDeleteTitle, setSelectedDeleteTitle] = useState<string>("");
+    //const [selectedDeleteTitle, setSelectedDeleteTitle] = useState<string>("");
     const [selectedDetails, setSelectedDetails] = useState<string>("");
-    const { startUpload, progress, deleteUpload } = useStorage();
+    const { startUpload, progress } = useStorage();
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files && e.target.files[0]) {
@@ -22,14 +22,14 @@ const UploadForm = () => {
         setSelectedFile(null);
     };
 
-    const handleDelete = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            deleteUpload (selectedDeleteTitle);
-        } catch(error) {
-            console.log(error.message, selectedDeleteTitle);
-        }
-      };
+    // const handleDelete = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     try {
+    //         deleteUpload (selectedDeleteTitle);
+    //     } catch(error) {
+    //         console.log(error.message, selectedDeleteTitle);
+    //     }
+    //   };
     
     return (
         <div>
@@ -59,7 +59,7 @@ const UploadForm = () => {
                 </form>
             </div>
 
-            <div className="text-center mb-10">
+            {/* <div className="text-center mb-10">
                 <form onSubmit = {handleDelete} className= "flex items-center flex-col gap-3">
                     <input
                         type="text" 
@@ -73,7 +73,7 @@ const UploadForm = () => {
                         disabled = {!selectedDeleteTitle}
                     >Delete</button>
                 </form>
-            </div>
+            </div> */}
 
         </div>
     );
